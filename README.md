@@ -41,12 +41,12 @@ Happy Using !!
 
 ## 1. Search Results by input
 
-![Search Results by input](https://github.com/nmanikumar5/deezer-eyewa/tree/main/public/search-results.png)
+![Search Results by input](https://github.com/nmanikumar5/deezer-eyewa/blob/main/public/screenshots/search-results.png)
 
 ## 2. Album list by Artist Selection
 
-![Album list by Artist Selection](https://github.com/nmanikumar5/deezer-eyewa/tree/main/public/artist-album-list.png)
+![Album list by Artist Selection](https://github.com/nmanikumar5/deezer-eyewa/blob/main/public/screenshots/artist-album-list.png)
 
 ## 3. Tracks by Album Selection
 
-![Tracks by Album Selection](https://github.com/nmanikumar5/deezer-eyewa/tree/main/public/tracks-by-album.png)
+![Tracks by Album Selection](https://github.com/nmanikumar5/deezer-eyewa/blob/main/public/screenshots/tracks-by-album.png)
