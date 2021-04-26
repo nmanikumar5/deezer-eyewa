@@ -1,0 +1,25 @@
+import { action } from "../helpers/actionCreator";
+
+export const ARTIST_ACTIONS = {
+  FETCH_ARTISTS: "FETCH_ARTISTS",
+  FETCH_ARTISTS_FAILED: "FETCH_ARTISTS_FAILED",
+  FETCH_ARTISTS_SUCCESS: "FETCH_ARTISTS_SUCCESS",
+};
+
+export const ALBUM_ACTIONS = {
+  FETCH_ALBUMS: "FETCH_ALBUMS",
+  FETCH_ALBUMS_FAILED: "FETCH_ALBUMS_FAILED",
+  FETCH_ALBUMS_SUCCESS: "FETCH_ALBUMS_SUCCESS",
+  FETCH_TRACKS: "FETCH_TRACKS",
+  FETCH_TRACKS_FAILED: "FETCH_TRACKS_FAILED",
+  FETCH_TRACKS_SUCCESS: "FETCH_TRACKS_SUCCESS",
+};
+
+export const getArtists = (artistName) =>
+  action(ARTIST_ACTIONS.FETCH_ARTISTS, artistName);
+
+export const getAlbums = (artistId) =>
+  action(ALBUM_ACTIONS.FETCH_ALBUMS, artistId);
+
+export const getTracks = (albumId) =>
+  action(ALBUM_ACTIONS.FETCH_TRACKS, albumId);
