@@ -36,3 +36,17 @@ Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 Happy Using !!
+
+## Screenshots:
+
+## 1. Search Results by input
+
+![Search Results by input](https://github.com/nmanikumar5/deezer-eyewa/tree/main/public/search-results.png)
+
+## 2. Album list by Artist Selection
+
+![Album list by Artist Selection](https://github.com/nmanikumar5/deezer-eyewa/tree/main/public/artist-album-list.png)
+
+## 3. Tracks by Album Selection
+
+![Tracks by Album Selection](https://github.com/nmanikumar5/deezer-eyewa/tree/main/public/tracks-by-album.png)
