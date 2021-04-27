@@ -1,6 +1,7 @@
 import { put, call, takeEvery, all, throttle } from "redux-saga/effects";
 import { ARTIST_ACTIONS, ALBUM_ACTIONS } from "../actions";
 import { getCall } from "../helpers/utils";
+import { action } from "../helpers/actionCreator";
 
 const getArtistList = (artistName = "") => {
   return getCall(`search/artist?q=${artistName}`);
@@ -18,27 +19,24 @@ export function* getArtists(data) {
   try {
     const { response } = yield call(getArtistList, data.payload);
     if (response != null && response.status === 200) {
-      yield put({
-        type: ARTIST_ACTIONS.FETCH_ARTISTS_SUCCESS,
-        payload: {
+      yield put(
+        action(ARTIST_ACTIONS.FETCH_ARTISTS_SUCCESS, {
           artistList: response.data.data,
-        },
-      });
+        })
+      );
     } else {
-      yield put({
-        type: ARTIST_ACTIONS.FETCH_ARTISTS_FAILED,
-        payload: {
+      yield put(
+        action(ARTIST_ACTIONS.FETCH_ARTISTS_FAILED, {
           artistList: [],
-        },
-      });
+        })
+      );
     }
   } catch (e) {
-    yield put({
-      type: ARTIST_ACTIONS.FETCH_ARTISTS_FAILED,
-      payload: {
+    yield put(
+      action(ARTIST_ACTIONS.FETCH_ARTISTS_FAILED, {
         artistList: [],
-      },
-    });
+      })
+    );
   }
 }
 
@@ -46,31 +44,28 @@ export function* getAlbums(data) {
   try {
     const { response } = yield call(getAlbumList, data.payload.id);
     if (response != null && response.status === 200) {
-      yield put({
-        type: ALBUM_ACTIONS.FETCH_ALBUMS_SUCCESS,
-        payload: {
+      yield put(
+        action(ALBUM_ACTIONS.FETCH_ALBUMS_SUCCESS, {
           albumList: response.data.data,
           trackList: [],
           selectedAlbum: [],
-        },
-      });
+        })
+      );
     } else {
-      yield put({
-        type: ALBUM_ACTIONS.FETCH_ALBUMS_FAILED,
-        payload: {
+      yield put(
+        action(ALBUM_ACTIONS.FETCH_ALBUMS_FAILED, {
           albumList: [],
           trackList: [],
-        },
-      });
+        })
+      );
     }
   } catch (e) {
-    yield put({
-      type: ALBUM_ACTIONS.FETCH_ALBUMS_FAILED,
-      payload: {
+    yield put(
+      action(ALBUM_ACTIONS.FETCH_ALBUMS_FAILED, {
         albumList: [],
         trackList: [],
-      },
-    });
+      })
+    );
   }
 }
 
@@ -78,25 +73,24 @@ export function* getTracks(data) {
   try {
     const { response } = yield call(getTrackList, data.payload.id);
     if (response != null && response.status === 200) {
-      yield put({
-        type: ALBUM_ACTIONS.FETCH_TRACKS_SUCCESS,
-        payload: {
+      yield put(
+        action(ALBUM_ACTIONS.FETCH_TRACKS_SUCCESS, {
           trackList: response.data.data,
-        },
-      });
+        })
+      );
     } else {
-      yield put({
-        type: ALBUM_ACTIONS.FETCH_TRACKS_FAILED,
-        payload: {
+      yield put(
+        action(ALBUM_ACTIONS.FETCH_TRACKS_FAILED, {
           trackList: [],
-        },
-      });
+        })
+      );
     }
   } catch (e) {
-    yield put({
-      type: ALBUM_ACTIONS.FETCH_TRACKS_FAILED,
-      payload: { trackList: [] },
-    });
+    yield put(
+      action(ALBUM_ACTIONS.FETCH_TRACKS_FAILED, {
+        trackList: [],
+      })
+    );
   }
 }
 
