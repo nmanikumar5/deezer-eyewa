@@ -2,6 +2,7 @@ import { put, call, takeEvery, all, throttle } from "redux-saga/effects";
 import { ARTIST_ACTIONS, ALBUM_ACTIONS } from "../actions";
 import { getCall } from "../helpers/utils";
 import { action } from "../helpers/actionCreator";
+import { API_SUCCESS_CODE } from "../constants";
 
 const getArtistList = (artistName = "") => {
   return getCall(`search/artist?q=${artistName}`);
@@ -18,7 +19,7 @@ const getTrackList = (albumId = null) => {
 export function* getArtists(data) {
   try {
     const { response } = yield call(getArtistList, data.payload);
-    if (response != null && response.status === 200) {
+    if (response != null && response.status === API_SUCCESS_CODE) {
       yield put(
         action(ARTIST_ACTIONS.FETCH_ARTISTS_SUCCESS, {
           artistList: response.data.data,
@@ -43,7 +44,7 @@ export function* getArtists(data) {
 export function* getAlbums(data) {
   try {
     const { response } = yield call(getAlbumList, data.payload.id);
-    if (response != null && response.status === 200) {
+    if (response != null && response.status === API_SUCCESS_CODE) {
       yield put(
         action(ALBUM_ACTIONS.FETCH_ALBUMS_SUCCESS, {
           albumList: response.data.data,
@@ -72,7 +73,7 @@ export function* getAlbums(data) {
 export function* getTracks(data) {
   try {
     const { response } = yield call(getTrackList, data.payload.id);
-    if (response != null && response.status === 200) {
+    if (response != null && response.status === API_SUCCESS_CODE) {
       yield put(
         action(ALBUM_ACTIONS.FETCH_TRACKS_SUCCESS, {
           trackList: response.data.data,

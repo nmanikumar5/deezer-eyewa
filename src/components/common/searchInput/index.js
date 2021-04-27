@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { Input, Ul, Li, SuggestContainer } from "./style";
 import { Row, Col } from "..";
+import { EYEWA_LABELS } from "../../../constants";
 
 const SearchInput = ({
   options,
@@ -12,11 +13,13 @@ const SearchInput = ({
 }) => {
   const [inputValue, setInputValue] = useState("");
 
+  // Input Search
   const updateValue = (newValue) => {
     setInputValue(newValue);
     requests(newValue);
   };
 
+  // Selected Artist from Search Results
   const handleSlctdClick = (selectedData) => {
     setInputValue(selectedData[titleField]);
     onClickFunction(selectedData);
@@ -36,7 +39,7 @@ const SearchInput = ({
           <SuggestContainer>
             <Ul>
               <Li key="search-results" disabled={true}>
-                Search Results
+                {EYEWA_LABELS.SEARCH_RESULTS}
               </Li>
               {options?.map((value, index) => (
                 <Li
